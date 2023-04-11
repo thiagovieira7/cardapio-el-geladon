@@ -1,25 +1,31 @@
+import { paletas } from"../mocks/paletas.js";
 import "./PaletaLista.css";
 
 function PaletaLista() {
   return (
     <div className="PaletaLista">
-      <div className="PaletaListaItem">
-        <div>
-          <div className="PaletaListaItem__titulo">Doce de Leite</div>
-          <div className="PaletaListaItem__preco">R$ 10,00</div>
-          <div className="PaletaListaItem__descricao">
-            Paleta de Doce de Leite
+      {paletas.map((paleta, index) => (
+        <div className="PaletaListaItem">
+          <div>
+            <div className="PaletaListaItem__titulo"> {paleta.titulo} </div>
+            <div className="PaletaListaItem__preco">{paleta.preco}</div>
+            <div className="PaletaListaItem__descricao">
+              {" "}
+              {paleta.descricao}{" "}
+            </div>
+            <div className="PaletaListaItem__acoes Acoes">
+              <button className="Acoes__adicionar Acoes__adicionar--preencher">
+                adicionar
+              </button>
+            </div>
           </div>
-          <div className="PaletaListaItem__acoes">
-            <button clasName="Acoes__adicionar--preencher">adicionar</button>
-          </div>
+          <img
+            className="PaletaListaItem__foto"
+            src={paleta.foto}
+            alt={`paleta de ${paleta.sabor}`}
+          />
         </div>
-        <img
-          clasName="PaletaListaItem__foto"
-          src={require("../assets/images/doce-de-leite-com-doce-de-leite.png")}
-          alt="Paleta de doce de leite"
-        />
-      </div>
+      ))}
     </div>
   );
 }
