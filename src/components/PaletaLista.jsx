@@ -1,7 +1,9 @@
-import { paletas } from"../mocks/paletas.js";
+import React, { useState } from 'react';
+import { paletas } from "../mocks/paletas.js";
 import "./PaletaLista.css";
 
 function PaletaLista() {
+  
   return (
     <div className="PaletaLista">
       {paletas.map((paleta, index) => (
